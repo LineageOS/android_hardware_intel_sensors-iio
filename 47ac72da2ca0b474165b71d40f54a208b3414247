@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6cfd44db_d692877f",
+        "filename": "common.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2023-11-26T17:26:16Z",
+      "side": 1,
+      "message": "https://github.com/torvalds/linux/blob/master/include/linux/iio/iio.h#L146\nsounds like to me the path is simply wrong?",
+      "range": {
+        "startLine": 50,
+        "startChar": 0,
+        "endLine": 50,
+        "endChar": 35
+      },
+      "revId": "47ac72da2ca0b474165b71d40f54a208b3414247",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
