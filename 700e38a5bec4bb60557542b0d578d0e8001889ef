@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1e85f3c9_afad4284",
+        "filename": "Android.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2023-11-26T17:25:03Z",
+      "side": 1,
+      "message": "add libhardware_headers instead of the hardocded path?",
+      "range": {
+        "startLine": 49,
+        "startChar": 0,
+        "endLine": 49,
+        "endChar": 22
+      },
+      "revId": "700e38a5bec4bb60557542b0d578d0e8001889ef",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
