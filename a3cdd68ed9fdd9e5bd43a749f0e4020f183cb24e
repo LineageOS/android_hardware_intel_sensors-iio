@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4bfd4f2b_d1e05af8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 27741
+      },
+      "writtenOn": "2023-11-27T17:34:56Z",
+      "side": 1,
+      "message": "Fixed!\nAs per Luca\u0027s comment, Linux iio spec denotes mount_matrix should be used exclusively, so Intel\u0027s path is just wrong.",
+      "revId": "a3cdd68ed9fdd9e5bd43a749f0e4020f183cb24e",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
