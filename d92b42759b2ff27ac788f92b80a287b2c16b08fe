@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "94eeb095_86a3f059",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 14048
+      },
+      "writtenOn": "2025-10-08T21:29:48Z",
+      "side": 1,
+      "message": "This allows mainline iio to work on t124. Would like explicit verification from nx that nothing breaks before this is merged however.",
+      "revId": "d92b42759b2ff27ac788f92b80a287b2c16b08fe",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
