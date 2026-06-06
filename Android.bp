@@ -77,6 +77,10 @@ cc_library_shared {
     name: "sensors.iio",
     defaults: ["intel_sensors_iio_hal_cc_defaults"],
     cflags: ["-DLOG_TAG=\"Sensors\""],
+    static_libs: [
+        "libhwdb_sensor",
+        "libsmbios_parser",
+    ],
     srcs: [":sensors_iio_srcs"],
 }
 
