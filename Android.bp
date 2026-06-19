@@ -20,18 +20,18 @@ soong_namespace {
 filegroup {
     name: "sensors_iio_srcs",
     srcs: [
-        "entry.c",
-        "enumeration.c",
+        "accel-calibration.c",
+        "compass-calibration.c",
         "control.c",
         "description.c",
-        "utils.c",
-        "transform.c",
-        "compass-calibration.c",
-        "matrix-ops.c",
-        "gyro-calibration.c",
-        "filtering.c",
         "discovery.c",
-        "accel-calibration.c",
+        "entry.c",
+        "enumeration.c",
+        "filtering.c",
+        "gyro-calibration.c",
+        "matrix-ops.c",
+        "transform.c",
+        "utils.c",
     ],
 }
 
@@ -41,7 +41,7 @@ filegroup {
         "activity_event_entry.c",
         "discovery.c",
         "utils.c",
-    ]
+    ],
 }
 
 cc_library_shared {
@@ -50,17 +50,17 @@ cc_library_shared {
     proprietary: true,
     cflags: [
         "-DLOG_TAG=\"Sensors\"",
-        "-fvisibility=hidden",
         "-Wno-missing-field-initializers",
+        "-fvisibility=hidden",
     ],
     ldflags: [
         "-Wl,--gc-sections",
     ],
     vendor: true,
     shared_libs: [
-        "liblog",
         "libcutils",
         "libdl",
+        "liblog",
     ],
     header_libs: [
         "libhardware_headers",
@@ -77,9 +77,9 @@ cc_binary {
     ],
     vendor: true,
     shared_libs: [
-        "liblog",
         "libcutils",
         "libdl",
+        "liblog",
     ],
     header_libs: [
         "libhardware_headers",
@@ -94,17 +94,17 @@ cc_library_shared {
     proprietary: true,
     cflags: [
         "-DLOG_TAG=\"Activity\"",
-        "-fvisibility=hidden",
         "-Wno-missing-field-initializers",
+        "-fvisibility=hidden",
     ],
     ldflags: [
         "-Wl,--gc-sections",
     ],
     vendor: true,
     shared_libs: [
-        "liblog",
         "libcutils",
         "libdl",
+        "liblog",
     ],
     header_libs: [
         "libhardware_headers",
@@ -121,9 +121,9 @@ cc_binary {
     ],
     vendor: true,
     shared_libs: [
-        "liblog",
         "libcutils",
         "libdl",
+        "liblog",
     ],
     srcs: ["activity.c"],
 }
