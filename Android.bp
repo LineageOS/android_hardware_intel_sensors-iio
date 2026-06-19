@@ -44,43 +44,46 @@ filegroup {
     ],
 }
 
-cc_library_shared {
-    name: "sensors.iio",
-    relative_install_path: "hw",
-    proprietary: true,
+cc_defaults {
+    name: "intel_sensors_iio_cc_defaults",
     cflags: [
-        "-DLOG_TAG=\"Sensors\"",
-        "-Wno-missing-field-initializers",
         "-fvisibility=hidden",
     ],
-    ldflags: [
-        "-Wl,--gc-sections",
-    ],
-    vendor: true,
     shared_libs: [
         "libcutils",
         "libdl",
         "liblog",
+    ],
+    vendor: true,
+}
+
+cc_defaults {
+    name: "intel_sensors_iio_hal_cc_defaults",
+    defaults: ["intel_sensors_iio_cc_defaults"],
+    relative_install_path: "hw",
+    cflags: [
+        "-Wno-missing-field-initializers",
+    ],
+    ldflags: [
+        "-Wl,--gc-sections",
     ],
     header_libs: [
         "libhardware_headers",
         "libutils_headers",
     ],
+}
+
+cc_library_shared {
+    name: "sensors.iio",
+    defaults: ["intel_sensors_iio_hal_cc_defaults"],
+    cflags: ["-DLOG_TAG=\"Sensors\""],
     srcs: [":sensors_iio_srcs"],
 }
 
 cc_binary {
     name: "sens",
-    cflags: [
-        "-DLOG_TAG=\"Sensors\"",
-        "-fvisibility=hidden",
-    ],
-    vendor: true,
-    shared_libs: [
-        "libcutils",
-        "libdl",
-        "liblog",
-    ],
+    defaults: ["intel_sensors_iio_cc_defaults"],
+    cflags: ["-DLOG_TAG=\"Sensors\""],
     header_libs: [
         "libhardware_headers",
         "libutils_headers",
@@ -90,40 +93,14 @@ cc_binary {
 
 cc_library_shared {
     name: "activity.iio",
-    relative_install_path: "hw",
-    proprietary: true,
-    cflags: [
-        "-DLOG_TAG=\"Activity\"",
-        "-Wno-missing-field-initializers",
-        "-fvisibility=hidden",
-    ],
-    ldflags: [
-        "-Wl,--gc-sections",
-    ],
-    vendor: true,
-    shared_libs: [
-        "libcutils",
-        "libdl",
-        "liblog",
-    ],
-    header_libs: [
-        "libhardware_headers",
-        "libutils_headers",
-    ],
+    defaults: ["intel_sensors_iio_hal_cc_defaults"],
+    cflags: ["-DLOG_TAG=\"Activity\""],
     srcs: [":activity_iio_srcs"],
 }
 
 cc_binary {
     name: "activity",
-    cflags: [
-        "-DLOG_TAG=\"Activity\"",
-        "-fvisibility=hidden",
-    ],
-    vendor: true,
-    shared_libs: [
-        "libcutils",
-        "libdl",
-        "liblog",
-    ],
+    defaults: ["intel_sensors_iio_cc_defaults"],
+    cflags: ["-DLOG_TAG=\"Activity\""],
     srcs: ["activity.c"],
 }
