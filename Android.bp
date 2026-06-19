@@ -76,11 +76,16 @@ cc_defaults {
 cc_library_shared {
     name: "sensors.iio",
     defaults: ["intel_sensors_iio_hal_cc_defaults"],
-    cflags: ["-DLOG_TAG=\"Sensors\""],
-    static_libs: [
-        "libhwdb_sensor",
-        "libsmbios_parser",
-    ],
+    cflags: [
+        "-DLOG_TAG=\"Sensors\"",
+    ] + select(soong_config_variable("intel_sensors_iio", "use_libhwdb_sensor"), {
+        true: ["-DUSE_LIBHWDB_SENSOR"],
+        default: [],
+    }),
+    static_libs: select(soong_config_variable("intel_sensors_iio", "use_libhwdb_sensor"), {
+        true: ["libhwdb_sensor", "libsmbios_parser"],
+        default: [],
+    }),
     srcs: [":sensors_iio_srcs"],
 }
 
