@@ -83,7 +83,7 @@ cc_library_shared {
         default: [],
     }),
     static_libs: select(soong_config_variable("intel_sensors_iio", "use_libhwdb_sensor"), {
-        true: ["libhwdb_sensor", "libsmbios_parser"],
+        true: ["//hardware/mainline/common:libhwdb_sensor", "//hardware/mainline/common:libsmbios_parser"],
         default: [],
     }),
     srcs: [":sensors_iio_srcs"],
