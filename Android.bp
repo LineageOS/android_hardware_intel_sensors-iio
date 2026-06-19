@@ -49,6 +49,10 @@ cc_defaults {
     cflags: [
         "-fvisibility=hidden",
     ],
+    header_libs: [
+        "libhardware_headers",
+        "libutils_headers",
+    ],
     shared_libs: [
         "libcutils",
         "libdl",
@@ -67,10 +71,6 @@ cc_defaults {
     ldflags: [
         "-Wl,--gc-sections",
     ],
-    header_libs: [
-        "libhardware_headers",
-        "libutils_headers",
-    ],
 }
 
 cc_library_shared {
@@ -84,10 +84,6 @@ cc_binary {
     name: "sens",
     defaults: ["intel_sensors_iio_cc_defaults"],
     cflags: ["-DLOG_TAG=\"Sensors\""],
-    header_libs: [
-        "libhardware_headers",
-        "libutils_headers",
-    ],
     srcs: ["sens.c"],
 }
 

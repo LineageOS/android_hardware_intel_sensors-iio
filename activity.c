@@ -98,7 +98,7 @@ static void dummy_activity_callback(const activity_recognition_callback_procs_t 
 	fprintf(monitor_client, "No. of activity events: %d\n", count);
 
 	for (i = 0; i < count; i++)
-		fprintf(monitor_client, "\t<activity [%d], event %s> occurred at %lld (ns)\n",
+		fprintf(monitor_client, "\t<activity [%d], event %s> occurred at %ld (ns)\n",
 			events[i].activity,
 			event_types[events[i].event_type],
 			events[i].timestamp);
@@ -397,9 +397,11 @@ static void start_server(void)
 }
 
 static const char *hal_paths[] ={
-	"./activity.gmin.so",
-	"/lib/activity.gmin.so",
-	"/system/lib/hw/activity.gmin.so",
+#ifdef __LP64__
+	"/vendor/lib64/hw/activity.iio.so",
+#else
+	"/vendor/lib/hw/activity.iio.so",
+#endif
 };
 
 static int start_hal(void)
