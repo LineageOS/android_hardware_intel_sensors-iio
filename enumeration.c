@@ -815,6 +815,7 @@ static int add_sensor (int dev_num, int catalog_index, int mode)
 					raw_modalias[len - 1] = '\0';
 				}
 
+#ifdef USE_LIBHWDB_SENSOR
 				if (g_hwdb_sensor_ctx) {
 					char* full_modalias = hwdb_sensor_build_modalias(raw_modalias);
 					if (full_modalias) {
@@ -863,6 +864,7 @@ static int add_sensor (int dev_num, int catalog_index, int mode)
 						free(full_modalias);
 					}
 				}
+#endif
 			}
 			fclose(f);
 		}

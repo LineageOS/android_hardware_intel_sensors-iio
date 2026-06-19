@@ -328,9 +328,6 @@ typedef struct
 }
 sensor_info_t;
 
-
-#include <hwdb_sensor.h>
-
 /* Reference a few commonly used variables... */
 extern int			sensor_count;
 extern struct sensor_t		sensor_desc[MAX_SENSORS];
@@ -338,7 +335,10 @@ extern sensor_info_t		sensor[MAX_SENSORS];
 extern sensor_catalog_entry_t	sensor_catalog[];
 extern unsigned int		catalog_size;
 
+#ifdef USE_LIBHWDB_SENSOR
+#include <hwdb_sensor.h>
 extern hwdb_sensor_context* g_hwdb_sensor_ctx;
+#endif
 
 /* Needed both in sensors and activity HALs */
 void check_trig_sensors (int i, char *sysfs_file, char map[catalog_size]);
